@@ -73,11 +73,10 @@ class RewardSpider(scrapy.Spider):
         category_name = category
         title = response.css('div[data-id="f2eae65"] > div > h2::text').get()
 
-        reward_amount_re = re.findall(r"(\d+) million", response.css('div[data-id="5e60756"] > div > h2::text').get()) \
+        reward_amount = re.findall(r"(\d+) million", response.css('div[data-id="5e60756"] > div > h2::text').get(), re.I) \
             if response.css('div[data-id="5e60756"] > div > h2::text') else self.default_val
-        reward_amount = self.default_val
         if reward_amount != "null":
-            reward_amount = f"${reward_amount_re[0]} million"
+            reward_amount = f"${reward_amount[0]} million"
 
         associated_org = response.css('div[data-id="095ca34"] > div > p > a::text').get() \
             if response.css('div[data-id="095ca34"] > div > p > a::text') else self.default_val
