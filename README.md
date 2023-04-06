@@ -5,6 +5,7 @@
   - Tested and developed on 3.8.0
 - scrapy 2.8.0.
   - Tested and developed on 2.8.0
+- pandas 2.0.0
 
 ## Overview
 - Scraper made only with Scrapy via concurrent requests.
